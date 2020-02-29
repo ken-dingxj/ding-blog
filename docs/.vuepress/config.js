@@ -24,7 +24,6 @@ module.exports = {
         ],
         sidebar: [
             ['/', '首页'],
-            ['/product/FirstBlog.md', '需求文档']
           ]
     }
 }
