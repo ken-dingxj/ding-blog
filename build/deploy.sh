@@ -3,7 +3,7 @@
 
 set -e
 
-GITVER=$(git rev-list HEAD -n 1 | cut -c 1-)
+GITVER=$(git rev-list HEAD^ -n 1 | cut -c 1-)
 
 docker kill ding
 
