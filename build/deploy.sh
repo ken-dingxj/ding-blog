@@ -13,6 +13,8 @@ docker rm -f ding
 
 docker rmi -f registry.cn-hangzhou.aliyuncs.com/docker_ding/test:${GITVER_PRE}
 
+docker pull registry.cn-hangzhou.aliyuncs.com/docker_ding/test:${GITVER_CURR}
+
 docker run -p 80:80 --name ding -d registry.cn-hangzhou.aliyuncs.com/docker_ding/test:${GITVER_CURR}
 
 echo '-------部署成功---------'
