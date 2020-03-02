@@ -11,7 +11,7 @@ docker kill ding
 
 docker rm -f ding 
 
-docker rmi -f registry.cn-hangzhou.aliyuncs.com/docker_ding/test:${GITVER_PRE}
+docker container prune
 
 docker pull registry.cn-hangzhou.aliyuncs.com/docker_ding/test:${GITVER_CURR}
 
