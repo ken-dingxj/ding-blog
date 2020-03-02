@@ -2,7 +2,6 @@
 #!/usr/bin/env sh
 
 set -e
-
 GITVER_PRE=$(git rev-list HEAD^ -n 1 | cut -c 1-)
 
 GITVER_CURR=$(git rev-list HEAD -n 1 | cut -c 1-)
