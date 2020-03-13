@@ -1,7 +1,26 @@
 module.exports = {
+    port: "3000",
     base: '/',
+    ga: "UA-xxxxx-1",
     title: '技术博客',
-    description: 'Vuepress blog demo',
+    description: 'docs',
+    markdown: {
+        lineNumbers: true,
+        externalLinks: {
+            target: '_blank', rel: 'noopener noreferrer'
+        }
+    },
+    head: [
+        // ico
+        ["link", {rel: "icon", href: `/favicon.ico`}],
+        // meta
+        ["meta", {name: "robots", content: "all"}],
+        ["meta", {name: "author", content: "pdai"}],
+        ["meta", {name: "keywords", content: "Java javascript全栈知识体系, java体系, java知识体系, java框架,java详解,java学习路线,java spring, java面试, 知识体系, java技术体系, java编程, java编程指南,java开发体系, java开发,java教程,java,java数据结构, 算法, 开发基础"}],
+        ["meta", {name: "apple-mobile-web-app-capable", content: "yes"}]
+    ],
+    plugins: [
+    ],
     themeConfig: {
         // 你的GitHub仓库，请正确填写
         repo: 'https://github.com/ken-dingxj/ding-blog.git',
@@ -13,17 +32,15 @@ module.exports = {
         sidebarDepth: 3,
         nav: [
             { text: '主页', link: '/' },
-            { text: '系统', items:[{text: 'a', link: '/x/a'},{text: 'b', link: '/x/b'}] },
-            { text: '工具', items:[{text: 'c', link: '/y/c'},{text: 'd', link: '/y/c'}] },
-            { text: '算法', link: '/c' },
+            { text: '阅读', link: '/red',items:[{text:'思维',link:'/read/think/readBookStep'},{text:'其他',link:'/read/other/'}]},
+            { text: '算法', link: '/algorithm' },
             { text: '产品', link: '/product' },
             { text: '前端', link: '/foreEnd' },
             { text: '后端', link: '/backEnd' },
             { text: '运维', link: '/operationMaintenance' },
-            { text: '其他', link: '/v' },
+            { text: '项目', items: [{text:'yapi',link:'/project/yapi'}]},
+            { text: '工具', items:[{text: 'webpack', link: '/webpack'},{text: 'rollup', link: '/rollup'}] },
         ],
-        sidebar: [
-            ['/', '首页'],
-          ]
+        sidebar: 'auto'
     }
 }
