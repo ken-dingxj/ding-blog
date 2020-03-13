@@ -12,6 +12,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "vuepress": "^1.1.0"
+    "vuepress": "^1.1.0",
+    "vuepress-theme-onen": "^1.1.3-beta",
+    "vuepress-theme-reform": "^1.4.4"
   }
 }

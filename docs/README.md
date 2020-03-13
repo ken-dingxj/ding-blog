@@ -1,9 +1,9 @@
 ---
 home: true
-heroImage: /logo.png
-heroText: 技术博客
-tagline: 优秀的判断力来自经验，但经验来自于错误的判断
-actionText: 开始阅读
+heroImage: /logo.jpeg
+heroText: 茶余饭后
+tagline: 闲来无事不从容，睡觉东窗日已红
+actionText: 喝茶去-_-
 actionLink: /
 features:
 - title: 夯实基础

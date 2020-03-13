@@ -2,8 +2,9 @@ module.exports = {
     port: "3000",
     base: '/',
     ga: "UA-xxxxx-1",
-    title: '技术博客',
+    title: '茶余饭后',
     description: 'docs',
+    theme:'reform',
     markdown: {
         lineNumbers: true,
         externalLinks: {
@@ -38,7 +39,7 @@ module.exports = {
             { text: '前端', link: '/front/frontTechnologySchemeThink' },
             { text: '后端', link: '/backEnd' },
             { text: '运维', link: '/operationMaintenance' },
-            { text: '项目', items: [{text:'yapi',link:'/project/yapi'}]},
+            { text: '项目', items: [{text:'接口测试平台',link:'/project/yapi'},{text:'云笔记',link:'/project/yapi'}]},
             { text: '工具', items:[{text: 'webpack', link: '/webpack'},{text: 'rollup', link: '/rollup'}] },
         ],
         sidebar:{
