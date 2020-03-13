@@ -4,7 +4,7 @@ module.exports = {
     ga: "UA-xxxxx-1",
     title: '茶余饭后',
     description: 'docs',
-    theme:'reform',
+    // theme:'reform',
     markdown: {
         lineNumbers: true,
         externalLinks: {
