@@ -32,15 +32,23 @@ module.exports = {
         sidebarDepth: 3,
         nav: [
             { text: '主页', link: '/' },
-            { text: '阅读', link: '/red',items:[{text:'思维',link:'/read/think/readBookStep'},{text:'其他',link:'/read/other/'}]},
+            { text: '阅读', link: '/read',items:[{text:'思维',link:'/read/think/readBookStep'},{text:'其他',link:'/read/other/'}]},
             { text: '算法', link: '/algorithm' },
             { text: '产品', link: '/product' },
-            { text: '前端', link: '/foreEnd' },
+            { text: '前端', link: '/front/frontTechnologySchemeThink' },
             { text: '后端', link: '/backEnd' },
             { text: '运维', link: '/operationMaintenance' },
             { text: '项目', items: [{text:'yapi',link:'/project/yapi'}]},
             { text: '工具', items:[{text: 'webpack', link: '/webpack'},{text: 'rollup', link: '/rollup'}] },
         ],
-        sidebar: 'auto'
+        sidebar:{
+           '/front/':[
+               'frontTechnologySchemeThink',
+               'demo'
+           ],
+           '/read/think/':[
+                'readBookStep'
+           ]
+        }
     }
 }
