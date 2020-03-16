@@ -33,7 +33,7 @@ module.exports = {
         sidebarDepth: 3,
         nav: [
             { text: '主页', link: '/' },
-            { text: '阅读', link: '/read',items:[{text:'思维',link:'/read/think/readBookStep'},{text:'其他',link:'/read/other/'}]},
+            { text: '阅读', link: '/read',items:[{text:'思维',link:'/read/think/readBookStep'},{text:'你不知道javascript上',link:'/read/javascript-up/'}]},
             { text: '算法', link: '/algorithm' },
             { text: '产品', link: '/product' },
             { text: '前端', link: '/front/frontTechnologySchemeThink' },
@@ -48,6 +48,9 @@ module.exports = {
            ],
            '/read/think/':[
                 'readBookStep'
+           ],
+           '/read/javascript-up/':[
+               ''
            ]
         }
     }
