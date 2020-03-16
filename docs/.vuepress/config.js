@@ -34,7 +34,7 @@ module.exports = {
         nav: [
             { text: '主页', link: '/' },
             { text: '阅读', link: '/read',items:[{text:'思维',link:'/read/think/readBookStep'},{text:'你不知道javascript上',link:'/read/javascript-up/'}]},
-            { text: '算法', link: '/algorithm' },
+            { text: '算法', link: '/algorithm/' },
             { text: '产品', link: '/product' },
             { text: '前端', link: '/front/frontTechnologySchemeThink' },
             { text: '后端', link: '/backEnd' },
@@ -50,6 +50,9 @@ module.exports = {
                 'readBookStep'
            ],
            '/read/javascript-up/':[
+               ''
+           ],
+           '/algorithm/':[
                ''
            ]
         }
