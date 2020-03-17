@@ -1,7 +1,7 @@
 
 # 思维导图
 <center>
-<img src="/images/read/思维进阶.png" width="800">
+<img src="/images/read/思维进阶.jpg" width="800">
 </center>
 
 # 主线
@@ -20,7 +20,7 @@
 #### 推荐指数：4星
 #### 非常简单，纯入门，完全不用担心看不懂。同时也能确实学到东西。案例很多
 <center>
-<img src="/images/read逻辑学导论.jpg" width="200">
+<img src="/images/read/逻辑学导论.jpg" width="200">
 </center>
 
 ## 批判性思维
