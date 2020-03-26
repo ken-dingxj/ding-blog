@@ -1,7 +1,10 @@
 ## 每日一练
+
 ### 两数之和(20200316)
-给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。
+
+给定一个整数数组 nums  和一个目标值 target，请你在该数组中找出和为目标值的那   两个   整数，并返回他们的数组下标。
 你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。
+
 ```java
 //暴力破解法（时间复杂度在 O(n2)）
 class Solution {
@@ -31,32 +34,35 @@ class Solution {
     }
 }
 ```
+
 ```javascript
 //暴力破解法（时间复杂度在 O(n2)）
 var twoSum = function(nums, target) {
-    for(let i=0;i<nums.length;i++){
-        for(let j=i+1;j<nums.length;j++){
-            if(nums[j]===target-nums[i]){
-                return [i,j]
-            }
-        }
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = i + 1; j < nums.length; j++) {
+      if (nums[j] === target - nums[i]) {
+        return [i, j];
+      }
     }
+  }
 };
 //哈希映射（时间复杂度在 O(n)）
 var twoSum = function(nums, target) {
-    let map=new Map();
-    let arr;
-    nums.forEach((item,index)=>{
-        let tem =target-item
-        if(map.get(tem)!==undefined){
-            arr=new Array(map.get(tem),index);
-        }
-        map.set(item,index)
-    })
-    return arr;
+  let map = new Map();
+  let arr;
+  nums.forEach((item, index) => {
+    let tem = target - item;
+    if (map.get(tem) !== undefined) {
+      arr = new Array(map.get(tem), index);
+    }
+    map.set(item, index);
+  });
+  return arr;
 };
 ```
+
 ### 两数相加(20200317)
+
 给出两个非空的链表用来表示两个非负的整数。其中，它们各自的位数是按照逆序的方式储存的，并且它们的每个节点只能储存一位数字。
 如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。
 
@@ -81,5 +87,83 @@ class Solution {
     }
     return dummyHead.next;
     }
+}
+```
+
+### 两数相加(20200318)
+
+js 浮点数计算精度问题解决方案
+
+```js
+console.log(68.1 + 19.35); //87.44999999999999
+//两数相加
+function accAdd(num1, num2) {
+  var r1, r2, m;
+  try {
+    r1 = num1.toString().split(".")[1].length;
+  } catch (e) {
+    r1 = 0;
+  }
+  try {
+    r2 = num2.toString().split(".")[1].length;
+  } catch (e) {
+    r2 = 0;
+  }
+  m = Math.pow(10, Math.max(r1, r2));
+  return Math.round(num1 * m + num2 * m) / m;
+}
+
+console.log(accAdd(68.1, 19.35)); //87.45
+
+// 两个浮点数相减
+function accSub(num1, num2) {
+  var r1, r2, m;
+  try {
+    r1 = num1.toString().split(".")[1].length;
+  } catch (e) {
+    r1 = 0;
+  }
+  try {
+    r2 = num2.toString().split(".")[1].length;
+  } catch (e) {
+    r2 = 0;
+  }
+  m = Math.pow(10, Math.max(r1, r2));
+  n = r1 >= r2 ? r1 : r2;
+  return (Math.round(num1 * m - num2 * m) / m).toFixed(n);
+}
+
+// 两数相除
+function accDiv(num1, num2) {
+  var t1, t2, r1, r2;
+  try {
+    t1 = num1.toString().split(".")[1].length;
+  } catch (e) {
+    t1 = 0;
+  }
+  try {
+    t2 = num2.toString().split(".")[1].length;
+  } catch (e) {
+    t2 = 0;
+  }
+  r1 = Number(num1.toString().replace(".", ""));
+  r2 = Number(num2.toString().replace(".", ""));
+  return (r1 / r2) * Math.pow(10, t2 - t1);
+}
+//两浮点数相乘
+function accMul(num1, num2) {
+  var m = 0,
+    s1 = num1.toString(),
+    s2 = num2.toString();
+  try {
+    m += s1.split(".")[1].length;
+  } catch (e) {}
+  try {
+    m += s2.split(".")[1].length;
+  } catch (e) {}
+  return (
+    (Number(s1.replace(".", "")) * Number(s2.replace(".", ""))) /
+    Math.pow(10, m)
+  );
 }
 ```
