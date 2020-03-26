@@ -187,3 +187,89 @@ function accMul(num1, num2) {
     }
 }
 ```
+### 对象深度相等(20200319)
+```js
+function deepEqual(x, y) {
+  // 指向同一内存时
+  if (x === y) {
+    return true;
+  }
+  else if ((typeof x == "object" && x != null) && (typeof y == "object" && y != null)) {
+    if (Object.keys(x).length != Object.keys(y).length)
+      return false;
+ 
+    for (var prop in x) {
+      if (y.hasOwnProperty(prop))
+      {  
+        if (! deepEqual(x[prop], y[prop]))
+          return false;
+      }
+      else
+        return false;
+    }
+ 
+    return true;
+  }
+  else 
+    return false;
+}
+let obj1={
+ "fkeyarea":["3301","3302"],
+ "fruleName":"规则名称",
+ "fdimensionScheme":[{
+        "fdataSource":1,
+        "fstepInterval":[{
+          "rowType":1,
+          "fmaxValue":"100",
+          "fminValue":"",
+          "fbranc":"20"
+         }]
+  },{
+        "fdataSource":2,
+        "fstepInterval":[{
+          "rowType":2,
+          "fmaxValue":"200",
+          "fminValue":"100",
+          "fbranc":"30"
+         }]
+  },{
+        "fdataSource":3,
+        "fstepInterval":[{
+          "rowType":2,
+          "fmaxValue":"300",
+          "fminValue":"200",
+          "fbranc":"40"
+         }]
+  }]
+}
+let obj2={
+ "fkeyarea":["3301","3302"],
+ "fruleName":"规则名称",
+ "fdimensionScheme":[{
+        "fdataSource":1,
+        "fstepInterval":[{
+          "rowType":1,
+          "fmaxValue":"100",
+          "fminValue":"",
+          "fbranc":"20"
+         }]
+  },{
+        "fdataSource":2,
+        "fstepInterval":[{
+          "rowType":2,
+          "fmaxValue":"200",
+          "fminValue":"100",
+          "fbranc":"30"
+         }]
+  },{
+        "fdataSource":3,
+        "fstepInterval":[{
+          "rowType":2,
+          "fmaxValue":"300",
+          "fminValue":"200",
+          "fbranc":"40"
+         }]
+  }]
+}
+console.log(deepEqual(obj1,obj2))// true
+```
