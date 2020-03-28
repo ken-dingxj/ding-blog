@@ -273,3 +273,239 @@ let obj2={
 }
 console.log(deepEqual(obj1,obj2))// true
 ```
+### currying(函数柯里化，部分求值)(20200320)
+
+一个currying的函数首先会接收一些参数，接受这些参数之后，不会立即求值，而是返回另个函数，刚才传入的参数形成闭包中保存起来，待到需要求值的时候，之前传入的所有参数一次性求值
+
+```js
+var currying=function(fn){
+  var args=[];
+  return function(){
+    if(arguments.length===0){
+      return fn.apply(this,args);
+    }else{
+      [].push.apply(args,arguments);
+      return argument.callee;
+      console.log()
+    }
+  }
+}
+
+var cost =(function(){
+  var money=0;
+  return function(){
+    for(var i=0,l=arguments.length;i<1;i++){
+      money+=arguments[i];
+    }
+    return money
+  }
+})()
+
+var cost=currying(cost);
+cost(100);
+cost(200);
+cost(300);
+cost();//求值并输出：600
+```
+
+### uncurrying(20200321) 
+
+把泛化this的过程提取出来
+
+```js
+Function.prototype.uncurrying1=function(){
+  var self=this;
+  return function(){
+    var obj=Array.prototype.shift.call(arguments)
+    return self.apply(obj,arguments);
+  }
+}
+
+Function.prototype.uncurrying2=function(){
+  var self=this;
+  return function(){
+    return Function.prototype.call.apply(self,arguments);
+  }
+}
+```
+
+### 函数节流(20200322)
+
+函数被频繁调用，例如（onresize，mousemove事件，上传进度）
+
+> 节流原理：一秒钟调用了10次，实际需要2到3次，可以借助setTimeout完成
+
+代码实现：
+```js
+var throttle=function(fn,interval){
+  var _self=fn,//保存需要被延迟的函数引用
+  timer,//定时器
+  firstTime=true;//还否第一次调用
+  return function(){
+    var args=arguments,_me=this;
+
+    if(firstTime){//如果第一次调用，不需要延迟执行  
+      _self.apply(_me,args);
+      return firstTime=false;
+    }
+    if(timer){//如果定时器还在，说明前一次延迟执行还没完成
+      return false;
+    }
+    timer=setTimeout(function(){//延迟一段时间执行
+      clearTimeout(timer);
+      timer=null;
+      _self.apply(_me,args);
+    },interval||500);
+  }
+}
+
+window.onresize=throttle(function(){
+  console.log(1)
+},500)
+```
+### 分时函数(20200323)
+
+例子：创建webQQ的QQ好友列表。可能需要一次性往页面创建成百上千的节点，往往会导致浏览器卡顿甚至假死；
+
+卡死代码：
+```js
+var ary=[];
+for(var i=1;i<=10000000;i++){
+    ary.push(i);
+}
+var renderFriendList=function(data){
+    for(var i=0,l=data.length;i<l;i++){
+        var div=document.createElement('div');
+        div.innerHTML=i;
+        document.body.appendChild(div);
+    }
+}
+
+renderFriendList(ary)
+```
+解决方案：timeChunk函数
+```js
+//第一个参数创建节点用到的数据，第二个参数创建节点逻辑函数，第三个参数表示每一次创建节点数量
+var timeChunk=function(ary,fn,count){
+  var obj,t;
+
+  var len=arr.length;
+  var start=function(){
+    for(var i=0;i<Math.min(count||1,arr.length);i++){
+      var obj=ary.shift();
+      fn(obj);
+    }
+  }
+  return function(){
+    t=setInterval(function(){
+      if(ary.length===0){//如果全部节点都已经被创建好
+        return clearInterval(t);
+      }
+      start();
+    },200)//分批执行的时间间隔，也可以用参数的形式传入
+  }
+}
+```
+改进方案：
+```js
+var timeChunk=function(ary,fn,count){
+  var obj,t;
+
+  var len=ary.length;
+  var start=function(){
+    for(var i=0;i<Math.min(count||1,ary.length);i++){
+      var obj=ary.shift();
+      fn(obj);
+    }
+  }
+  return function(){
+    
+    t=setInterval(function(){
+      if(ary.length===0){//如果全部节点都已经被创建好
+        return clearInterval(t);
+      }
+      window.requestAnimationFrame(start)
+    },60)//分批执行的时间间隔，也可以用参数的形式传入
+  }
+}
+```
+执行代码：
+```js
+<script>
+var timeChunk=function(ary,fn,count){
+  var obj,t;
+
+  var len=ary.length;
+  var start=function(){
+    for(var i=0;i<Math.min(count||1,ary.length);i++){
+      var obj=ary.shift();
+      fn(obj);
+    }
+  }
+  return function(){
+    
+    t=setInterval(function(){
+      if(ary.length===0){//如果全部节点都已经被创建好
+        return clearInterval(t);
+      }
+      window.requestAnimationFrame(start)
+    },60)//分批执行的时间间隔，也可以用参数的形式传入
+  }
+}
+
+var ary=[];
+for(var i=1;i<=10000000;i++){
+    ary.push(i);
+}
+var renderFriendList=timeChunk(ary,function(n){
+        var div=document.createElement('div');
+        div.innerHTML=n;
+        document.body.appendChild(div);
+},100)
+
+renderFriendList(ary)
+</script>
+```
+### 惰性加载函数(20200324)
+
+```js
+var addEvent=function(elem,type,handler){
+  if(window.addEventListener){
+    return elem.addEventListener(type,handle,false);
+  }
+  if(window.attachEvent){
+    return elem.attachEvent('on'+type,handler);
+  }
+}
+缺点：每次调用都要执行里面的if分支
+```
+```js
+var addEvent=(function(elem,type,handler){
+  if(window.addEventListener){
+    return function(elem,type,handler){
+      elem.addEventListener(type,handle,false);
+    }
+  }
+  if(window.attachEvent){
+    return function(elem,type,handler){
+      elem.attachEvent('on'+type,handler);
+    }
+  }
+})()
+缺点：如果未使用addEvent函数，造成多余操作
+```
+```js
+var addEvent=function(elem,type,handler){
+  if(window.addEventListener){
+    addEvent=function(elem,type,handler){
+      elem.addEventListener(type,handle,false);
+    }
+  }
+  if(window.attachEvent){
+    addEvent=function(elem,type,handler){
+      elem.attachEvent('on'+type,handler);
+    }
+  }
+}
+优点：第一次进入这个分支，会重写这个函数，下一次进入时，就不会存在多余if分支
+```
