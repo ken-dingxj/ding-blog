@@ -51,15 +51,10 @@ module.exports = {
           }
         ]
       },
-      {
-        text: "书籍",
-        link: "/book",
-        items: [{ text: "你不知道的javascript上", link: "/book/jsUp/" }]
-      },
       { text: "算法", link: "/algorithm/" },
       { text: "产品", link: "/product" },
-      { text: "前端", link: "/front/frontTechnologySchemeThink" },
-      { text: "后端", link: "/backEnd" },
+      { text: "前端", items:[{text:"前端思考",link:"/front/think/"},{ text: "你不知道的javascript上", link: "/front/book/jsUp/"}] },
+      { text: "后端", items:[{text:"疯狂java",link:"/back/crazy/"}] },
       { text: "运维", link: "/operationMaintenance" },
       {
         text: "项目",
@@ -81,7 +76,9 @@ module.exports = {
       "read/cognitiveImprovement": ["cognitiveImprovement"],
       "/book/jsUp/": [""],
       "/algorithm/": [""],
-      "/front/": ["frontTechnologySchemeThink"]
+      "/front/think/": [""],
+      "/front/book/jsUp/":[""],
+      "/back/crazy/":[""]
     }
   }
 };
