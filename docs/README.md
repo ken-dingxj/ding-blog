@@ -3,8 +3,8 @@ home: true
 heroImage: /logo.jpeg
 heroText: 茶余饭后
 tagline: 闲来无事不从容，睡觉东窗日已红
-actionText: 喝茶去-_-
-actionLink: /
+# actionText: 喝茶去-_-
+# actionLink: /
 features:
 - title: 夯实基础
   details: 不积跬步无以至千里, 仰望星空还需脚踏实地
