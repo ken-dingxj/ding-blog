@@ -55,7 +55,7 @@ module.exports = {
       { text: "产品", link: "/product" },
       { text: "前端", items:[{text:"前端思考",link:"/front/think/"},{ text: "你不知道的javascript上", link: "/front/book/jsUp/"}] },
       { text: "后端", items:[{text:"疯狂java",link:"/back/crazy/"}] },
-      { text: "运维", link: "/operationMaintenance" },
+      { text: "运维", items:[{text:"http",link:"/operation/http/"}]},
       {
         text: "项目",
         items: [
