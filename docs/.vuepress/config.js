@@ -52,24 +52,24 @@ module.exports = {
         ]
       },
       { text: "算法", link: "/algorithm/" },
-      { text: "产品", link: "/product" },
+      // { text: "产品", link: "/product" },
       { text: "前端", items:[{text:"前端思考",link:"/front/think/"},{ text: "你不知道的javascript上", link: "/front/book/up/"},{text:"javascript设计模式与开发实践",link: "/front/book/designPattern/"}] },
-      { text: "后端", items:[{text:"疯狂java",link:"/back/crazy/"}] },
+      { text: "后端", items:[{text:"疯狂java",link:"/back/crazy/"},{text:"Thinking in Java",link:"/back/think/"}] },
       { text: "运维", items:[{text:"http",link:"/operation/http/"}]},
-      {
-        text: "项目",
-        items: [
-          { text: "接口测试平台", link: "/project/yapi" },
-          { text: "云笔记", link: "/project/yapi" }
-        ]
-      },
-      {
-        text: "工具",
-        items: [
-          { text: "webpack", link: "/webpack" },
-          { text: "rollup", link: "/rollup" }
-        ]
-      }
+      // {
+      //   text: "项目",
+      //   items: [
+      //     { text: "接口测试平台", link: "/project/yapi" },
+      //     { text: "云笔记", link: "/project/yapi" }
+      //   ]
+      // },
+      // {
+      //   text: "工具",
+      //   items: [
+      //     { text: "webpack", link: "/webpack" },
+      //     { text: "rollup", link: "/rollup" }
+      //   ]
+      // }
     ],
     sidebar: {
       "/read/think/": ["readBookStep"],
