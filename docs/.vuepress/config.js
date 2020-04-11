@@ -56,13 +56,20 @@ module.exports = {
       { text: "前端", items:[{text:"前端思考",link:"/front/think/"},{ text: "你不知道的javascript上", link: "/front/book/up/"},{text:"javascript设计模式与开发实践",link: "/front/book/designPattern/"}] },
       { text: "后端", items:[{text:"疯狂java",link:"/back/crazy/"},{text:"Thinking in Java",link:"/back/think/"}] },
       { text: "运维", items:[{text:"http",link:"/operation/http/"}]},
-      // {
-      //   text: "项目",
-      //   items: [
-      //     { text: "接口测试平台", link: "/project/yapi" },
-      //     { text: "云笔记", link: "/project/yapi" }
-      //   ]
-      // },
+      {
+        text: "源码",
+        items: [
+          { text: "vue", link: "/code/vue/" },
+        ]
+      },
+      {
+        text: "项目",
+        items: [
+          { text: "博客", link: "/project/boke/" },
+          // { text: "接口测试平台", link: "/project/yapi" },
+          // { text: "云笔记", link: "/project/yapi" }
+        ]
+      },
       // {
       //   text: "工具",
       //   items: [
@@ -80,7 +87,9 @@ module.exports = {
       "/front/book/designPattern/":[""],
       "/front/book/up/":[""],
       "/back/crazy/":[""],
-      "/operation/http/":[""]
+      "/operation/http/":[""],
+      "/code/vue/":[""],
+      "/project/boke/":[""]
     }
   }
 };
