@@ -41,6 +41,10 @@ module.exports = {
     nav: [
       { text: "主页", link: "/" },
       {
+        text: "前端工程化",
+        link: "/engineer/"
+      },
+      {
         text: "心得",
         link: "/read",
         items: [
@@ -87,14 +91,7 @@ module.exports = {
           // { text: "接口测试平台", link: "/project/yapi" },
           // { text: "云笔记", link: "/project/yapi" }
         ],
-      },
-      // {
-      //   text: "工具",
-      //   items: [
-      //     { text: "webpack", link: "/webpack" },
-      //     { text: "rollup", link: "/rollup" }
-      //   ]
-      // }
+      }
     ],
     sidebar: {
       "/read/think/": ["readBookStep"],
@@ -108,7 +105,8 @@ module.exports = {
       "/operation/http/": [""],
       "/code/vue/": [""],
       "/project/boke/": [""],
-      "/front/npm/":[""]
+      "/front/npm/":[""],
+      "/Engineering/":[""]
     },
   },
 };
