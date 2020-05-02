@@ -84,10 +84,18 @@ module.exports = {
         text: "源码",
         items: [{ text: "vue", link: "/code/vue/" }],
       },
+      // {
+      //   text: "项目",
+      //   items: [
+      //     { text: "博客", link: "/project/boke/" },
+      //     // { text: "接口测试平台", link: "/project/yapi" },
+      //     // { text: "云笔记", link: "/project/yapi" }
+      //   ],
+      // },
       {
-        text: "项目",
+        text: "工具",
         items: [
-          { text: "博客", link: "/project/boke/" },
+          { text: "webpack", link: "/tool/webpack/" },
           // { text: "接口测试平台", link: "/project/yapi" },
           // { text: "云笔记", link: "/project/yapi" }
         ],
@@ -106,7 +114,8 @@ module.exports = {
       "/code/vue/": [""],
       "/project/boke/": [""],
       "/front/npm/":[""],
-      "/Engineering/":[""]
+      "/Engineering/":[""],
+      "/tool/webpack/":[""]
     },
   },
 };
