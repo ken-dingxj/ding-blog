@@ -27,6 +27,7 @@ module.exports = {
       },
     ],
     ["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],
+    ["script",{type:"text/javascript",src:"https://s4.cnzz.com/z_stat.php?id=1278919995&web_id=1278919995"}]
   ],
   plugins: [],
   themeConfig: {
