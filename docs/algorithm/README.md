@@ -44,14 +44,22 @@ for (int i = 0; i < len; i++) {
  * @return {number}
  */
 var removeDuplicates = function(nums) {
-
+    let l=[...new Set(nums)].length;
+    return l;
 };
 ```
 **java**
 ```java
 class Solution {
     public int removeDuplicates(int[] nums) {
-
+        int[] str =nums;
+        List<Integer> list = new ArrayList<Integer>();
+        for (int i=0; i<str.length; i++) {
+            if(!list.contains(str[i])) {
+                list.add(str[i]);
+            }
+        }
+        return list.size();
     }
 }
 ```
