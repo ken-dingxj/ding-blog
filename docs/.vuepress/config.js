@@ -70,6 +70,10 @@ module.exports = {
           {
             text: "简单方法库封装",
             link: "/front/npm/",
+          },
+          {
+            text: "ajax详解",
+            link: "/front/ajax/",
           }
         ],
       },
