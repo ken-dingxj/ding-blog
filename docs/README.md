@@ -11,6 +11,6 @@ features:
 - title: 构建体系
   details: 告别碎片化学习，帮助你构筑你自己的知识体系
 - title: 全栈开发
-  details: 以node，java开发为背景，全栈开发，DevOps
+  details: 全栈开发,系统学习
 footer: MIT Licensed | Copyright © 2020-present dingxuejin
 ---

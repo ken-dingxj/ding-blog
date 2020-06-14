@@ -31,9 +31,7 @@ module.exports = {
   ],
   plugins: [],
   themeConfig: {
-    // 你的GitHub仓库，请正确填写
     repo: "https://github.com/ken-dingxj/ding-blog.git",
-    // 自定义仓库链接文字。
     repoLabel: "GitHub",
     docsDir: "docs",
     editLinks: true,
@@ -41,10 +39,6 @@ module.exports = {
     sidebarDepth: 3,
     nav: [
       { text: "主页", link: "/" },
-      {
-        text: "前端工程化",
-        link: "/engineer/"
-      },
       {
         text: "心得",
         link: "/read",
@@ -56,10 +50,17 @@ module.exports = {
           },
         ],
       },
-      { text: "算法", link: "/algorithm/" },
-      // { text: "产品", link: "/product" },
       {
-        text: "前端",
+        text: "源码",
+        items: [{ text: "webpack", link: "/code/vue/" },{ text: "vue", link: "/code/vue/" }],
+      },
+      {
+        text: "前端工程化",
+        link: "/engineer/"
+      },
+      { text: "算法", link: "/algorithm/" },
+      {
+        text: "js",
         items: [
           { text: "前端思考", link: "/front/think/" },
           { text: "你不知道的javascript上", link: "/front/book/up/" },
@@ -78,31 +79,22 @@ module.exports = {
         ],
       },
       {
-        text: "后端",
+        text: "html",
         items: [
-          { text: "疯狂java", link: "/back/crazy/" },
-          { text: "Thinking in Java", link: "/back/think/" },
+          { text: "html", link: "/back/crazy/" },
         ],
       },
-      { text: "运维", items: [{ text: "http", link: "/operation/http/" }] },
+      { text: "css", items: [{ text: "css", link: "/operation/http/" }]},
       {
-        text: "源码",
-        items: [{ text: "vue", link: "/code/vue/" }],
-      },
-      // {
-      //   text: "项目",
-      //   items: [
-      //     { text: "博客", link: "/project/boke/" },
-      //     // { text: "接口测试平台", link: "/project/yapi" },
-      //     // { text: "云笔记", link: "/project/yapi" }
-      //   ],
-      // },
-      {
-        text: "工具",
+        text: "node",
         items: [
-          { text: "webpack", link: "/tool/webpack/" },
-          // { text: "接口测试平台", link: "/project/yapi" },
-          // { text: "云笔记", link: "/project/yapi" }
+          { text: "node", link: "/tool/webpack/" },
+        ],
+      },
+      {
+        text: "浏览器",
+        items: [
+          { text: "浏览器原理", link: "/tool/webpack/" },
         ],
       }
     ],
