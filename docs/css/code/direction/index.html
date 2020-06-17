@@ -1,0 +1,54 @@
+<!--
+ * @Description: 
+ * @Author: dingxuejin
+ * @Date: 2020-06-17 11:15:52
+ * @LastEditTime: 2020-06-17 12:39:03
+ * @LastEditors: dingxuejin
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        background-color: aqua;
+      }
+      .box1 {
+        background-color: brown;
+      }
+      .f-wh {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+      }
+      .f-cen {
+        text-align: center;
+      }
+      .f-rtl{
+          direction: rtl;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="f-cen" dir="ltr">
+      <div class="box  f-wh">确定</div>
+      <div class="box1  f-wh">取消</div>
+    </div>
+    <div class="f-cen" dir="rtl">
+      <div class="box  f-wh">确定</div>
+      <div class="box1  f-wh">取消</div>
+    </div>
+    <div class="f-rtl">啊啊啊  <span class="f-rtl" style="unicode-bidi: normal;">我是说你手机</span>  顶顶顶顶</div>
+    <br/>
+    <div class="f-rtl">啊啊啊  <span class="f-rtl" style="unicode-bidi: embed;">我是说你手机</span>  顶顶顶顶</div>
+    <br/>
+    <div class="f-rtl">啊啊啊  <span class="f-rtl" style="unicode-bidi: bidi-override;">我是说你手机</span>  顶顶顶顶</div>
+    <p>&#x202E;一二三四五六七八九十</p>
+  </body>
+</html>

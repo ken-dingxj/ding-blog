@@ -84,7 +84,7 @@ module.exports = {
           { text: "html", link: "/back/crazy/" },
         ],
       },
-      { text: "css", items: [{ text: "css", link: "/operation/http/" }]},
+      { text: "css", link:"/css/"},
       {
         text: "node",
         items: [
@@ -112,7 +112,8 @@ module.exports = {
       "/project/boke/": [""],
       "/front/npm/":[""],
       "/Engineering/":[""],
-      "/tool/webpack/":[""]
+      "/tool/webpack/":[""],
+      "/css/":[""]
     },
   },
 };
