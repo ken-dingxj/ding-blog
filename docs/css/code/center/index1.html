@@ -1,0 +1,49 @@
+<!--
+ * @Description: 
+ * @Author: dingxuejin
+ * @Date: 2020-06-20 13:41:46
+ * @LastEditTime: 2020-06-20 14:02:23
+ * @LastEditors: dingxuejin
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        height: 200px;
+        width: 200px;
+        background-color: blanchedalmond;
+        text-align: center;
+      }
+      .box::after {
+       content: "";
+       display: inline-block;
+       height: 100%;
+       vertical-align: middle;
+      }
+      .box1 {
+        vertical-align: middle;
+        display: inline-block;
+        height: 50px;
+        width: 50px;
+        background-color: blue;
+      }
+      .box2 {
+        display: inline-block;
+        vertical-align: middle;
+        height: 50px;
+        width: 50px;
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="box1"></div>
+      <div class="box2"></div>
+    </div>
+  </body>
+</html>
