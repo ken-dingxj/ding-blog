@@ -52,7 +52,7 @@ module.exports = {
       },
       {
         text: "源码",
-        items: [{ text: "webpack", link: "/code/vue/" },{ text: "vue", link: "/code/vue/" }],
+        items: [{ text: "webpack", link: "/code/webpack/" },{ text: "vue", link: "/code/vue/" }],
       },
       {
         text: "前端工程化",
@@ -80,22 +80,16 @@ module.exports = {
       },
       {
         text: "html",
-        items: [
-          { text: "html", link: "/back/crazy/" },
-        ],
+        link: "/html/"
       },
       { text: "css", link:"/css/"},
       {
         text: "node",
-        items: [
-          { text: "node", link: "/tool/webpack/" },
-        ],
+        link: "/node/"
       },
       {
         text: "浏览器",
-        items: [
-          { text: "浏览器原理", link: "/tool/webpack/" },
-        ],
+        link: "/webkit/"
       }
     ],
     sidebar: {
