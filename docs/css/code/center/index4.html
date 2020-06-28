@@ -1,0 +1,56 @@
+<!--
+ * @Description: 
+ * @Author: dingxuejin
+ * @Date: 2020-06-28 12:53:01
+ * @LastEditTime: 2020-06-28 13:18:45
+ * @LastEditors: dingxuejin
+--> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            height: 240px;
+            width: 300px;
+            background-color: red;
+            overflow: hidden;
+        }
+        .auto{
+            display: block;
+            height: 100px;
+            width: 100px;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+        .verticle-mode{
+            writing-mode: tb-rl;
+            -webkit-writing-mode:verticle-mode;
+            writing-mode: vertical-lr;
+        }
+        .text{
+            display: block;
+            height: 100px;
+            margin-top: auto;
+            margin-bottom: auto;
+            writing-mode: horizontal-tb;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="./images/logo.jpeg" alt="" class="auto">
+    </div>
+<br>
+    <div class="box verticle-mode">
+        <img src="./images/logo.jpeg" alt="" class="auto">
+        <span class="text">测试文字</span>
+    </div>
+</body>
+</html>

@@ -97,6 +97,60 @@ unicode-bidi: bidi-override; /**反向排列**/
 
 ### writing-mode
 
+**兼容性**
+```css
+writing-mode:lr-tb|tb-rl|tb-lr;(IE7+)
+writing-mode:horizontal-tb|vertical-rl|vertical-lr;(IE8+)
+```
+
+```html
+
+<!--
+ * @Description: 
+ * @Author: dingxuejin
+ * @Date: 2020-06-17 11:15:52
+ * @LastEditTime: 2020-06-28 12:24:35
+ * @LastEditors: dingxuejin
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+     *{
+         margin: 0;
+         padding: 0;
+     }
+     .box{
+
+         display: inline-block;
+         writing-mode: horizontal-tb;
+     }
+      .box1{
+         display: inline-block;
+         writing-mode: vertical-lr;
+     }
+    </style>
+  </head>
+  <body>
+    <div class="box">不知细叶谁剪出</div>
+    <div class="box">二月春风似剪刀</div>
+    <div class="box1">不知细叶谁剪出</div>
+    <div class="box1">二月春风似剪刀</div>
+  </body>
+</html>
+
+```
+#### 场景
+水平方向margin合并<br/>
+普通块元素可以使用margin:auto实现垂直居中<br/>
+使用text-align:center实现图片垂直居中<br/>
+可以使用text-indent实现文字下沉效果<br/>
+可以实现全兼容的icon fonts图标的旋转效果<br/>
+充分利用高度的高度自适应布局等<br/>
+
 ## css 居中方式（垂直，水平）
 
 ### 方式一(index1)
@@ -308,4 +362,69 @@ margin-top: auto; margin-bottom: auto; 仅实现垂直方向居中
     </div>
   </body>
 </html>
+```
+### 方式四(index4)
+默认的web流中，margin设置auto的时候，只有水平方向才会居中，因为默认
+width是100%自适应的，auto才有计算值可算，而垂直方向，height没有任
+何设置的时候高度绝不会自动和父级高度一致，因此无法实现垂直方向的居中，
+使用writing-mode，纵横规则已经改变，垂直流方向自动适用父级高度
+
+```html
+<!--
+ * @Description: 
+ * @Author: dingxuejin
+ * @Date: 2020-06-28 12:53:01
+ * @LastEditTime: 2020-06-28 13:18:45
+ * @LastEditors: dingxuejin
+--> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            height: 240px;
+            width: 300px;
+            background-color: red;
+            overflow: hidden;
+        }
+        .auto{
+            display: block;
+            height: 100px;
+            width: 100px;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+        .verticle-mode{
+            writing-mode: tb-rl;
+            -webkit-writing-mode:verticle-mode;
+            writing-mode: vertical-lr;
+        }
+        .text{
+            display: block;
+            height: 100px;
+            margin-top: auto;
+            margin-bottom: auto;
+            writing-mode: horizontal-tb;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="./images/logo.jpeg" alt="" class="auto">
+    </div>
+<br>
+    <div class="box verticle-mode">
+        <img src="./images/logo.jpeg" alt="" class="auto">
+        <span class="text">测试文字</span>
+    </div>
+</body>
+</html>
+
 ```
