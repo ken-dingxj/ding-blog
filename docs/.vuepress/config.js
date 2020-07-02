@@ -79,8 +79,8 @@ module.exports = {
         ],
       },
       {
-        text: "html",
-        link: "/html/"
+        text: "template",
+        items:[{text:"html",link:"/temp/html/"},{text:"ejs",link:"/temp/ejs/"}]
       },
       { text: "css", link:"/css/"},
       {

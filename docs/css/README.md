@@ -430,3 +430,188 @@ width是100%自适应的，auto才有计算值可算，而垂直方向，height�
 ```
 
 ## 用户界面样式
+
+### outline
+
+**兼容性**
+
+| Chrome | Safari | Firefox  | Opera |  IE  | Android  | IOS  |
+| :----: | :----: | :------: | :---: | :--: | :------: | :--: |
+|  4.0+  |  3.1+  | 2 | 10+  | 8+ | 2.1+ | 3.2+ |
+
+**头像剪裁的矩形镂空效果**
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>outline</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+  </head>
+  <style>
+    .crop-box,
+    .preview-box {
+      display: inline-block;
+      vertical-align: top;
+    }
+    .crop,
+    .preview {
+      position: relative;
+      overflow: hidden;
+    }
+    .crop-area,
+    .preview {
+      width: 80px;
+      height: 80px;
+    }
+    .crop-area {
+      position: absolute;
+      left: 88px;
+      top: 56px;
+      outline: 256px solid #000;
+      outline: 256px solid rgba(0, 0, 0, 0.5);
+      background: url(about:blank);
+      background: linear-gradient(to top, transparent, transparent);
+      filter: alpha(opacity=50);
+      cursor: move;
+    }
+    :root .crop-area {
+      filter: none;
+    }
+    .crop img,
+    .preview img {
+      display: block;
+      width: 256px;
+      height: 192px;
+    }
+    .preview img {
+      position: absolute;
+      left: -88px;
+      top: -56px;
+    }
+    .box{
+        display: inline-block;
+        position: relative;
+        background-color: red;
+        overflow: hidden;
+    }
+    .area{
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        outline: 256px solid rgba(0, 0, 0, 0.5);
+    }
+  </style>
+  <body>
+    <div class="crop-box">
+      <h4>剪裁（仅演示移动）</h4>
+      <div class="crop">
+        <div id="cropArea" class="crop-area"></div>
+        <img src="../center/images/logo.jpeg" />
+      </div>
+    </div>
+    <div class="preview-box">
+      <h4>预览</h4>
+      <div class="preview">
+        <img id="previewImg" src="../center/images/logo.jpeg" />
+      </div>
+    </div>
+    <div class="box">
+        <div class="area"></div>
+        <img src="../center/images/logo.jpeg" />
+    </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  var elCropArea = $("#cropArea");
+  var elPreviewImg = $("#previewImg");
+
+  var data = {};
+
+  elCropArea.on("mousedown", function(event) {
+    data = {
+      moving: true,
+      left: elCropArea.position().left,
+      top: elCropArea.position().top,
+      x: event.pageX,
+      y: event.pageY,
+    };
+  });
+  $(document).on({
+    mousemove: function(event) {
+      if (data.moving) {
+        event.preventDefault();
+        // 移动距离
+        var moveX = event.pageX - data.x;
+        var moveY = event.pageY - data.y;
+
+        // 目标坐标
+        var left = data.left + moveX;
+        var top = data.top + moveY;
+
+        // 边界判断
+        if (left < 0) {
+          left = 0;
+        } else if (left + 80 > 256) {
+          left = 176;
+        }
+        if (top < 0) {
+          top = 0;
+        } else if (top + 80 > 192) {
+          top = 112;
+        }
+
+        // 重定位
+        elCropArea.css({
+          left: left,
+          top: top,
+        });
+        elPreviewImg.css({
+          left: -1 * left,
+          top: -1 * top,
+        });
+      }
+    },
+    mouseup: function() {
+      data.moving = false;
+    },
+  });
+</script>
+```
+**自动填满屏幕剩余空间的应用技巧**
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>自动填满屏幕剩余空间的应用技巧</title>
+  </head>
+  <style>
+    .footer {
+      height: 50px;
+    }
+    .footer > p {
+      position: absolute;
+      left: 0;
+      right: 0;
+      text-align: center;
+      padding: 15px 0;
+      background-color: #a0b3d6;
+      outline: 9999px solid #a0b3d6;
+      clip: rect(0 9999px 9999px 0);
+    }
+  </style>
+  <body>
+    <div class="footer">
+      <p>Designed &amp; Powered by zhangxinxu</p>
+    </div>
+  </body>
+</html>
+```
+### cursor
