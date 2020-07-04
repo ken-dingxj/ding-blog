@@ -27,7 +27,13 @@ module.exports = {
       },
     ],
     ["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],
-    ["script",{type:"text/javascript",src:"https://s4.cnzz.com/z_stat.php?id=1278919995&web_id=1278919995"}]
+    [
+      "script",
+      {
+        type: "text/javascript",
+        src: "https://s4.cnzz.com/z_stat.php?id=1278919995&web_id=1278919995",
+      },
+    ],
   ],
   plugins: [],
   themeConfig: {
@@ -51,12 +57,16 @@ module.exports = {
         ],
       },
       {
-        text: "源码",
-        items: [{ text: "webpack", link: "/code/webpack/" },{ text: "vue", link: "/code/vue/" }],
+        text: "框架",
+        items: [
+          { text: "webpack", link: "/code/webpack/" },
+          { text: "vue", link: "/code/vue/" },
+          { text: "react", link: "/code/react/" }
+        ],
       },
       {
         text: "前端工程化",
-        link: "/engineer/"
+        link: "/engineer/",
       },
       { text: "算法", link: "/algorithm/" },
       {
@@ -75,22 +85,25 @@ module.exports = {
           {
             text: "ajax详解",
             link: "/front/ajax/",
-          }
+          },
         ],
       },
       {
         text: "template",
-        items:[{text:"html",link:"/temp/html/"},{text:"ejs",link:"/temp/ejs/"}]
+        items: [
+          { text: "html", link: "/temp/html/" },
+          { text: "ejs", link: "/temp/ejs/" },
+        ],
       },
-      { text: "css", link:"/css/"},
+      { text: "css", link: "/css/" },
       {
         text: "node",
-        link: "/node/"
+        link: "/node/",
       },
       {
         text: "浏览器",
-        link: "/webkit/"
-      }
+        link: "/webkit/",
+      },
     ],
     sidebar: {
       "/read/think/": ["readBookStep"],
@@ -104,10 +117,11 @@ module.exports = {
       "/operation/http/": [""],
       "/code/vue/": [""],
       "/project/boke/": [""],
-      "/front/npm/":[""],
-      "/Engineering/":[""],
-      "/tool/webpack/":[""],
-      "/css/":[""]
+      "/front/npm/": [""],
+      "/Engineering/": [""],
+      "/tool/webpack/": [""],
+      "/css/": [""],
+      "/code/react":[""],
     },
   },
 };
