@@ -121,7 +121,7 @@ module.exports = {
       "/Engineering/": [""],
       "/tool/webpack/": [""],
       "/css/": [""],
-      "/code/react":[""],
+      "/code/react/":[""],
     },
   },
 };

@@ -1,11 +1,3 @@
-<!--
- * @Description:
- * @Author: dingxuejin
- * @Date: 2020-07-05 00:28:57
- * @LastEditTime: 2020-07-05 01:19:57
- * @LastEditors: dingxuejin
--->
-
 # React
 
 ## 组件
