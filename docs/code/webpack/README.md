@@ -1,11 +1,3 @@
-<!--
- * @Description: 
- * @Author: dingxuejin
- * @Date: 2020-06-28 13:35:16
- * @LastEditTime: 2020-07-06 17:33:08
- * @LastEditors: dingxuejin
---> 
-
 # webpack源码解析
 
 ## webpack整体流程图

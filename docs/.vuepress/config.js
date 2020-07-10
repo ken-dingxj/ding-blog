@@ -119,7 +119,7 @@ module.exports = {
       "/project/boke/": [""],
       "/front/npm/": [""],
       "/Engineering/": [""],
-      "/tool/webpack/": [""],
+      "/code/webpack/": [""],
       "/css/": [""],
       "/code/react/":[""],
     },

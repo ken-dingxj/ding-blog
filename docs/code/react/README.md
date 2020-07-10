@@ -181,4 +181,23 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
-## 属性和状态
+## 组件属性和状态
+
+### 属性(组件的输入)
+```js
+//例子
+<User name="yan" age="18">
+
+//函数式组件
+function User(props){
+  return <div>{props.name}</div>
+}
+
+//class组件
+class User extends Component{
+  render(){
+    retrun <div>{this.props.name}</div>
+  }
+}
+```
+**ps:** 属性是只读的，不能进行修改
