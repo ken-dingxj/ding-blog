@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .lower {
+        position: absolute;
+        clip: rect(0, 0, 0, 0);
+        height: 50px;
+        width: 50px;
+        background-color: blue;
+      }
+      .out {
+        position: relative;
+        left: -999em;
+        height: 100px;
+        width: 100px;
+        background-color: red;
+      }
+
+      .hidden {
+        max-height: 0;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <script type="text/html">
+      <img src="../image/logo.jpeg"/>
+    </script> -->
+    <div class="out">
+      <div class="lower">
+        啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+      </div>
+    </div>
+    <div class="hidden">
+      aaaaaa
+    </div>
+  </body>
+</html>
