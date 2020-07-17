@@ -104,6 +104,13 @@ module.exports = {
         text: "浏览器",
         link: "/webkit/",
       },
+      {
+        text: "运维",
+        items:[
+          {text:"http",link: "/operation/http/"},
+          {text:"ssh",link: "/operation/ssh/"}
+      ]
+      },
     ],
     sidebar: {
       "/read/think/": ["readBookStep"],
@@ -115,6 +122,7 @@ module.exports = {
       "/front/book/up/": [""],
       "/back/crazy/": [""],
       "/operation/http/": [""],
+      "/operation/ssh/": [""],
       "/code/vue/": [""],
       "/project/boke/": [""],
       "/front/npm/": [""],

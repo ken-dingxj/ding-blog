@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /logo.jpeg
+heroImage: https://cdn.jsdelivr.net/npm/ding-image@1.0.2/image/logo.jpeg
 heroText: 茶余饭后
 tagline: 闲来无事不从容，睡觉东窗日已红
 # actionText: 喝茶去-_-
