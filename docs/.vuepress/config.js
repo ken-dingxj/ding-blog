@@ -107,9 +107,17 @@ module.exports = {
       {
         text: "运维",
         items:[
+          {text:"deploy",link: "/operation/deploy/"},
           {text:"http",link: "/operation/http/"},
           {text:"ssh",link: "/operation/ssh/"}
-      ]
+        ]
+      },
+
+      {
+        text: "interview",
+        items:[
+          {text:"html",link: "/interview/html/"},
+        ]
       },
     ],
     sidebar: {
@@ -121,6 +129,7 @@ module.exports = {
       "/front/book/designPattern/": [""],
       "/front/book/up/": [""],
       "/back/crazy/": [""],
+      "/operation/deploy/": [""],
       "/operation/http/": [""],
       "/operation/ssh/": [""],
       "/code/vue/": [""],
@@ -130,6 +139,7 @@ module.exports = {
       "/code/webpack/": [""],
       "/css/": [""],
       "/code/react/":[""],
+      "/interview/html/":[""]
     },
   },
 };
