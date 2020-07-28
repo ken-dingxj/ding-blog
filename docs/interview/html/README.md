@@ -195,4 +195,70 @@ Webkit 和 Firefox 都做了这个优化，当执行 JavaScript 脚本时，另�
  载的资源。这种方式可以使资源并行加载从而使整体速度更快。需要注意的是，预解析并不改变 DOM 树，它将这个工作留给主解析
  过程，自己只解析外部资源的引用，比如外部脚本、样式表及图片。
 ```
-### 
+### CSS 如何阻塞文档解析？（浏览器解析过程）
+```
+理论上，既然样式表不改变 DOM 树，也就没有必要停下文档的解析等待它们，然而，存在一个问题，JavaScript 脚本执行时可
+ 能在文档的解析过程中请求样式信息，如果样式还没有加载和解析，脚本将得到错误的值，显然这将会导致很多问题。
+ 所以如果浏览器尚未完成 CSSOM 的下载和构建，而我们却想在此时运行脚本，那么浏览器将延迟 JavaScript 脚本执行和文档
+ 的解析，直至其完成 CSSOM 的下载和构建。也就是说，在这种情况下，浏览器会先下载和构建 CSSOM，然后再执行 JavaScript，
+ 最后再继续文档的解析。
+```
+### 渲染页面时常见哪些不良现象？（浏览器渲染过程）
+```
+FOUC：主要指的是样式闪烁的问题，由于浏览器渲染机制（比如firefox），在 CSS 加载之前，先呈现了 HTML，就会导致展示
+       出无样式内容，然后样式突然呈现的现象。会出现这个问题的原因主要是 css 加载时间过长，或者 css 被放在了文档底
+       部。
+白屏：有些浏览器渲染机制（比如chrome）要先构建 DOM 树和 CSSOM 树，构建完成后再进行渲染，如果 CSS 部分放在 HTML 
+      尾部，由于 CSS 未加载完成，浏览器迟迟未渲染，从而导致白屏；也可能是把 js 文件放在头部，脚本的加载会阻塞后面
+      文档内容的解析，从而页面迟迟未渲染出来，出现白屏问题。
+```
+### 什么是重绘和回流？（浏览器绘制过程）
+```
+重绘: 当渲染树中的一些元素需要更新属性，而这些属性只是影响元素的外观、风格，而不会影响布局的操作，比如 background
+       -color，我们将这样的操作称为重绘。
+回流：当渲染树中的一部分（或全部）因为元素的规模尺寸、布局、隐藏等改变而需要重新构建的操作，会影响到布局的操作，这样
+      的操作我们称为回流。
+常见引起回流属性和方法:
+任何会改变元素几何信息（元素的位置和尺寸大小）的操作，都会触发回流。
+（1）添加或者删除可见的 DOM 元素；
+（2）元素尺寸改变——边距、填充、边框、宽度和高度
+（3）内容变化，比如用户在 input 框中输入文字
+（4）浏览器窗口尺寸改变——resize事件发生时
+（5）计算 offsetWidth 和 offsetHeight 属性
+（6）设置 style 属性的值
+（7）当你修改网页的默认字体时。
+ 回流必定会发生重绘，重绘不一定会引发回流。回流所需的成本比重绘高的多，改变父节点里的子节点很可能会导致父节点的一系列
+ 回流
+```
+常见引起重绘属性和方法：
+```
+color border-style visibility background 
+text-decoration backgroud-image background-position backgroud-repeat
+outline-color outline outline-style borer-radius
+outline-width box-shadow backgroud-size 
+```
+常见引起回流的属性和方法：
+```
+width height margin padding
+dispaly border position overflow
+clientWidth clientHeight clientTop clientLeft
+offsetWidht  offsetHeight offsetTop offsetLeft
+scrollWidth scrollHeight scrollTop scrollLeft
+
+```
+### 如何减少回流？（浏览器绘制过程）
+```
+  (1）使用 transform 替代 top
+
+ （2）不要把节点的属性值放在一个循环里当成循环里的变量
+
+ （3）不要使用 table 布局，可能很小的一个小改动会造成整个 table 的重新布局
+
+ （4）把 DOM 离线后修改。如：使用 documentFragment 对象在内存里操作 DOM
+
+ （5）不要一条一条地修改 DOM 的样式。与其这样，还不如预先定义好 css 的 class，然后修改 DOM 的 className。
+```
+### 为什么操作 DOM 慢？（浏览器绘制过程)
+```
+一些 DOM 的操作或者属性访问可能会引起页面的回流和重绘，从而引起性能上的消耗。
+```

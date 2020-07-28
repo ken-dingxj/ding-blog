@@ -103,6 +103,9 @@ module.exports = {
       {
         text: "浏览器",
         link: "/webkit/",
+        items:[
+          {text:"Reflow & Repaint",link: "/webkit/Reflow & Repaint/"}
+        ]
       },
       {
         text: "运维",
@@ -139,7 +142,8 @@ module.exports = {
       "/code/webpack/": [""],
       "/css/": [""],
       "/code/react/":[""],
-      "/interview/html/":[""]
+      "/interview/html/":[""],
+      "/webkit/Reflow & Repaint/":[""]
     },
   },
 };
