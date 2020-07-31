@@ -117,7 +117,7 @@ module.exports = {
       },
 
       {
-        text: "interview",
+        text: "知识点",
         items:[
           {text:"html",link: "/interview/html/"},
         ]
