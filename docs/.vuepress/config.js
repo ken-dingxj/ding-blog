@@ -120,6 +120,7 @@ module.exports = {
         text: "知识点",
         items:[
           {text:"html",link: "/interview/html/"},
+          {text:"css",link: "/interview/css/"},
         ]
       },
     ],
@@ -143,6 +144,7 @@ module.exports = {
       "/css/": [""],
       "/code/react/":[""],
       "/interview/html/":[""],
+      "/interview/css/":[""],
       "/webkit/Reflow & Repaint/":[""]
     },
   },
