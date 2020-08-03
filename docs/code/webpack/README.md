@@ -4,7 +4,7 @@
 
 摘自:[细说webapck之流程篇](https://www.cnblogs.com/yxy99/p/5852987.html)
 
-![GitHub](https://img.alicdn.com/tps/TB1GVGFNXXXXXaTapXXXXXXXXXX-4436-4244.jpg "GitHub,Social Coding")
+![GitHub](https://cdn.jsdelivr.net/npm/ding-image/image/webpack.jpg "GitHub,Social Coding")
 
 ### optimist阶段(现在已被yargs替代)
 

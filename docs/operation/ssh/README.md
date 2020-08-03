@@ -2,7 +2,7 @@
 ## 原理解析
 
 <center>
-<img src="https://s4.51cto.com/wyfs02/M00/89/B5/wKioL1gasLHyMZqWAABkj2E3rY0133.png-wh_500x0-wm_3-wmp_4-s_1223854125.png" width="800">
+<img src="https://cdn.jsdelivr.net/npm/ding-image/image/ssh.png" width="800">
 </center>
 
 上面这张图就是通过非对称加密方式传递数据的。
