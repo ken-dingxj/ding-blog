@@ -121,6 +121,9 @@ module.exports = {
         items:[
           {text:"html",link: "/interview/html/"},
           {text:"css",link: "/interview/css/"},
+          {text:"js",link: "/interview/js/"},
+          {text:"算法",link: "/interview/sunfa/"},
+          {text:"网络",link: "/interview/net/"},
         ]
       },
     ],
@@ -145,6 +148,9 @@ module.exports = {
       "/code/react/":[""],
       "/interview/html/":[""],
       "/interview/css/":[""],
+      "/interview/js/":[""],
+      "/interview/sunfa/":[""],
+      "/interview/net/":[""],
       "/webkit/Reflow & Repaint/":[""]
     },
   },
