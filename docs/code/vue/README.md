@@ -1,159 +1,30 @@
-# 变化侦测
+# 数据驱动
 
-## Object 变化侦测
-
-### 追踪变化
-
-使用 Object.defineProperty
-
-```js
-function defineReactive(data, key, val) {
-  Object.defineProperty(data, key, {
-    enumerable: true,
-    configurable: true,
-    get: function() {
-      return val;
-    },
-    set: function(newVal) {
-      if (val === newVal) {
-        return;
-      }
-      val = newVal;
-    },
-  });
-}
+## 简介
+Vue.js一个核心思想是数据驱动。所谓数据驱动，是指视图是有数据驱动生成，我们对视图修改，不会直接操作DOM，而是通过修改数据。
+在vue.js中我们可以采用简洁的模板语法来声明式的将数据渲染为DOM：
+```html
+<div id="app">
+ {{message}}
+</div>
 ```
-
-### 收集依赖
-
-假设依赖是一个函数，保存 window.target 上
-
 ```js
-function defineReactive(data, key, val) {
-  let dep = [];
-  Object.defineProperty(data, key, {
-    enumerable: true,
-    configurable: true,
-    get: function() {
-      //新增
-      dep.push(window.target);
-      return val;
-    },
-    set: function(newVal) {
-      if (val === newVal) {
-        return;
-      }
-      //新增
-      for (let i = 0; i < dep.length; i++) {
-        dep[i](newVal, val);
-      }
-      val = newVal;
-    },
-  });
-}
-```
-
-### 封装 dep 类
-
-```js
-export default class Dep {
-  constructor() {
-    this.subs = [];
+var app=new Vue({
+  el:"#app"，
+  data:{
+    message:'Hello Vue!'
   }
-
-  addSub(sub) {
-    this.subs.push(sub);
-  }
-
-  removeSub(sub) {
-    remove(this.subs, sub);
-  }
-
-  depend() {
-    if (window.target) {
-      this.addSub(window.target);
-    }
-  }
-
-  notify() {
-    const subs = this.subs.slice();
-    for (let i = 0, l = subs.length; i < l; i++) {
-      subs[i].update();
-    }
-  }
-}
-
-function remove(arr, item) {
-  if (arr.length) {
-    const index = arr.indexOf(item);
-    if (index > -1) {
-      return arr.splice(index, 1);
-    }
-  }
-}
-```
-在改造一下defineReactive
-```js
-function defineReactive(data, key, val) {
-  let dep = new Dep();//修改
-  Object.defineProperty(data, key, {
-    enumerable: true,
-    configurable: true,
-    get: function() {
-      //新增
-      dep.depend();//修改
-      return val;
-    },
-    set: function(newVal) {
-      if (val === newVal) {
-        return;
-      }
-      val = newVal;
-      dep.notify()//新增
-    },
-  });
-}
-```
-### 依赖是Watcher
-```js
-
-vm.$watch('a.b.c',function(newVal,oldVal){
-    //做点什么
 })
-
-export default class Watcer{
-    constructor(vm,expOrFn,cb){
-        this.vm=vm;
-        this.getter=parsePath(expOrFn)
-        this.cb=cb
-        this.value=this.get()
-    }
-
-    get(){
-        window.target=this
-        let value=this.getter.call(this.vm,this.vm)
-        window.target=undefined
-        return value
-    }
-
-    update(){
-        const oldValue=this.value
-        this.value=this.get()
-        this.cb.call(this.vm,this.value,oldValue)
-    }
-}
-const baiRE=/[^\w.$]/
-export function parsePath(){
-    if(bailRE.test(path)){
-        return
-    }
-    const segments=path.split('.')
-    return function(obj){
-        for(let i=0;i<segments.length;i++){
-            if(!obj)return
-            obj=obj[segments[i]]
-        }
-        return obj
-    }
-}
 ```
+最终它会在页面渲染出Hello Vue。接下来我们从源码角度分析Vue是如何实现的。
+
+## new Vue发生了什么
+### 主流程
+![](https://ustbhuangyi.github.io/vue-analysis/assets/new-vue.png)
+### 初始化
+### 挂载
+### 编译
+### render
+### 虚拟dom
+### patch
+
